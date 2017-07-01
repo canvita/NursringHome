@@ -1,4 +1,7 @@
 1.
+git init (创建git最初始的位置)
+git remote add origin url
+git clone url (获取到那个库的文件然后以后修改都在里边进行);
 使用自己的git,在NursringHome中复制cd /Applications/MAMP/htdocs/NursringHome
 git checkout选择分支,
 git pull 同步数据
