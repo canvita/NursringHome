@@ -51,62 +51,28 @@ var intotable = function(requestData){
   json =  JSON.parse(data);  
   //初始化需要写入页面的html段落 
   var html = '';
-  //获取当前页面
-  curPage = requestData.curPage;
-  //获取当前每页显示条数
-  disOption = requestData.disOption;
-  //设置每页的开始和结束的索引(在搜索时用到)
-  pageStart = (curPage-1) * disOption;
-  pageEnd = curPage * disOption;
   //遍历数组
   $.each(json,function(index,value){ 
-    //如果在搜索使用以下js插入html段落
-    if(requestData.query){
     //写入html,并得到数据库的数据总数   
-      if(!value.total){
-        if(index < pageEnd && index >= pageStart){
-           html += '<tr>';
-           html += '<td>' + value.staff_serial_number + '</td>';
-           html += '<td>' + value.staff_name + '</td>';
-           html += '<td>' + numToString('gender',value.staff_gender) + '</td>';
-           html += '<td>' + value.staff_phone_num + '</td>';
-           html += '<td>' + value.staff_id_number+ '</td>';
-           html += '<td>' + numToString('role_id',value.staff_role_id) + '</td>';
-           html += '<td>' + value.staff_create_time + '</td>';
-           html += '<td>';
-           html += '<a class="icon_a sys-color"><i class="fa fa-edit operateBtn"></i></a>';
-           html += '<a class="icon_a sys-color operateBtn"><i class="fa fa-info-circle operateBtn"></i></a>';
-           html += '<a class="icon_a warning-color operateBtn"><i class="fa fa-user-times operateBtn"></i></a>';
-           html += '</td>';
-           html += '</tr>';  
-        }   
-      }   
-      else{
-        pageInfo.total = value.total;
-      }    
-    } 
-    //在非搜索情况下使用以下js插入html段落
+    if(!value.total){
+         html += '<tr>';
+         html += '<td>' + value.staff_serial_number + '</td>';
+         html += '<td>' + value.staff_name + '</td>';
+         html += '<td>' + numToString('gender',value.staff_gender) + '</td>';
+         html += '<td>' + value.staff_phone_num + '</td>';
+         html += '<td>' + value.staff_id_number+ '</td>';
+         html += '<td>' + numToString('role_id',value.staff_role_id) + '</td>';
+         html += '<td>' + value.staff_create_time + '</td>';
+         html += '<td>';
+         html += '<a class="icon_a sys-color"><i class="fa fa-edit operateBtn"></i></a>';
+         html += '<a class="icon_a sys-color operateBtn"><i class="fa fa-info-circle operateBtn"></i></a>';
+         html += '<a class="icon_a warning-color operateBtn"><i class="fa fa-user-times operateBtn"></i></a>';
+         html += '</td>';
+         html += '</tr>';  
+      }      
     else{
-      if(!value.total){
-        html += '<tr>';
-        html += '<td>' + value.staff_serial_number + '</td>';
-        html += '<td>' + value.staff_name + '</td>';
-        html += '<td>' + numToString('gender',value.staff_gender) + '</td>';
-        html += '<td>' + value.staff_phone_num + '</td>';
-        html += '<td>' + value.staff_id_number+ '</td>';
-        html += '<td>' + numToString('role_id',value.staff_role_id) + '</td>';
-        html += '<td>' + value.staff_create_time + '</td>';
-        html += '<td>';
-        html += '<a class="icon_a sys-color"><i class="fa fa-edit operateBtn"></i></a>';
-        html += '<a class="icon_a sys-color operateBtn"><i class="fa fa-info-circle operateBtn"></i></a>';
-        html += '<a class="icon_a warning-color operateBtn"><i class="fa fa-user-times operateBtn"></i></a>';
-        html += '</td>';
-        html += '</tr>';   
-      }   
-      else{
-        pageInfo.total = value.total;
-      }  
-    }    
+      pageInfo.total = value.total;
+    }       
   });
   //插入html段落
   $('tbody').html(html);
