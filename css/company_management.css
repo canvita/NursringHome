@@ -1,0 +1,383 @@
+/***********************
+ * 企业管理页所有css集合 *
+ ************************/
+
+/** 子页面全局配置 **/
+body{
+    padding: 0;
+    margin: 15px 1% 0 15px;
+    font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #676a6c;
+    overflow-x: hidden;
+    background-color: transparent;
+}
+p{
+    padding: 0;
+    margin: 0;
+}
+a {
+  background-color: transparent;
+}
+a:active, a:hover {
+  outline: 0;
+}
+a, a:visited {
+    text-decoration: none;
+}
+/** 系统配色 **/
+.sys-color{
+    color: #4bb0a5;
+}
+.search-input{
+    width: 280px !important;
+    border-radius: 8px;
+}
+/** 字体大小 **/
+.font-size-20{
+    font-size: 20px;
+}
+.font-size-18{
+    font-size: 18px;
+}
+.font-size-16{
+    font-size: 16px;
+}
+.font-size-14{
+    font-size: 14px;
+}
+/** 浮动 **/
+.float-left{
+    float: left !important;
+}
+.float-right{
+    float: right !important;
+}
+/** 清除浮动 **/
+.clear{
+    clear: both;
+}
+/** 文本居中 **/
+.center{
+    text-align: center;
+}
+/** 边框 **/
+.border-top{
+    border-top: 1px solid #bbbbbb;
+}
+.border-bottom{
+    border-bottom: 1px solid #bbbbbb;
+}
+.border-both{
+    border-top: 1px solid #bbbbbb;
+    border-bottom: 1px solid #bbbbbb;
+}
+/* table文字对齐*/
+table>thead>tr>th{
+    text-align: center;
+}
+table>tbody>tr>td{
+    text-align: center;
+}
+/* 图标css */
+.icon_a{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 2px;
+}
+.icon_a>i{
+    font-size: 16px;
+}
+/* 系统配色样式 */
+.sys-color, .sys-color:hover, .sys-color:visited{
+    color: #4bb0a5;
+}
+/* 警告色样式 */
+.warning-color, .warning-color:hover, .warning-color:visited{
+    color: #ff4081;
+}
+/* 子页面container样式 */
+.page-container{
+    background-color: #fff;
+    border: 1px #bbb solid;
+}
+/* table容器样式 */
+.table-container{
+    border-top: solid 1px #bbbbbb;
+    padding: 40px 0;
+    min-height: 600px;
+}
+/** 标题p **/
+.title-p{
+    padding: 5px 15px;
+}
+/** 子标题p **/
+.sub-title-p{
+    padding: 5px 30px;
+}
+
+/************* 添加员工页css start **************/
+a.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+.staff_add_a{
+    margin-top: -30px !important;
+}
+.info-box{
+    padding: 5px 15px;
+}
+.info-col{
+    display: inline-block;
+}
+.pic-col{
+    display: inline-block;
+}
+.col-name{
+    color: #9c9c9c;
+}
+.col-name, .col-input{
+    display: inline-block;
+    min-height: 30px;
+}
+/** 字段列 **/
+.col{
+    text-align: right;
+    display: block;
+    margin: 15px 5px;
+}
+/** 字段输入列 **/
+.col-input{
+    margin-right: 2%;
+}
+.form-control{
+    height: 23px;
+    margin: 12.5px 5px;
+    padding: 1px 12px;
+}
+.single-line{
+    display: block;
+    margin: 5px;
+}
+.img-icon{
+    max-height: 110px;
+}
+
+/************* 添加员工页css End ***************/
+
+/************* 权限分配页css Start *************/
+.row{
+    margin-left: 1%;
+}
+/** 添加角色版块**/
+.biankuang1,.role_detail{
+    font-size: 18px;    
+    margin-top: 1%;
+    margin-bottom: 2%;
+    margin-left: 1%;
+}
+.biankuang1{
+    border: 1px solid #bbbbbb;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.role_detail input{
+    display: inline-block;
+    margin-right: 8%;
+    border-radius: 6px;
+}
+#role_description{
+    vertical-align:top;
+    border-radius:6px;
+    width: 200px;
+    resize: none;
+    margin-bottom: 5px;
+}
+
+/*子标题（企业、会员服务等）*/
+#enterprise,#vip{
+    margin:1% 0 1% 1%;
+    
+}
+/*员工、角色、床位等*/
+.col-md-2{
+    font-size: 16px;
+}
+.col-md-2 input{
+    width: 12px;
+    height: 12px;
+}
+
+/*员工、角色、床位等下一级*/
+.subBox{
+    padding-left: 6%;
+    font-size: 12px;
+
+}
+.subBox input{
+    width: 10px;
+    height: 10px;
+}
+.add_role{
+   text-align: center;
+   margin-bottom: 2%;
+}
+.btn-primary{
+    width: 8%;
+}
+
+/************* 权限分配页css End ***************/
+
+/************* 床位配置css Start ***************/
+.col-part{
+    display: inline-block;
+}
+.col-part select,i{
+    display: inline-block;
+}
+.search-bar{
+    width: 250px! important;
+    border-radius: 5px;
+    font-size: 16px;
+    background: url("../images/search.png")no-repeat scroll 95% center transparent;
+    background-size: 20px 20px;
+}
+.p-btn-default{
+    border:1px solid #4bb0a5;
+    border-radius: 5px;
+    color: #4bb0a5;
+    cursor: pointer;
+    background-color: white;
+}
+.p-btn-primary{
+    border:1px solid #ed1178;
+    border-radius: 5px;
+    color: #ed1178;
+    cursor: pointer;
+}
+.select-block form .float-right{
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+/*品牌列表*/
+.brand-list {
+    width: 100%;
+    overflow: hidden;
+    margin-left: -10px;
+}
+.brand-list .brand-bd {
+    position: relative;
+    margin-left: 60px;
+    margin-top: auto;
+}
+.brand-list .item {
+    position: absolute;
+    width: 300px;
+    border: 1px solid #bbbbbb;
+    padding: 18px;
+    padding-top: 10px;
+    top: 0;
+    left: 40%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.brand-list .hover {
+    box-shadow: 0px 1px 8px rgba(200,200,200,.6);
+    background-color: #fff;
+    border-color: #c8c8c8;
+}
+.brand-list .additem {
+    padding: 0;
+    width: 300px;
+    border: none;
+}
+.brand-list .item .bedset {
+    width: 108px;
+    height: 48px;
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 15px;
+    border-radius: 3px;
+    padding: 4px;
+    color: white;
+}
+.brand-list .item .bedset-normal{
+    background: #2baf2b;
+}
+.brand-list .item .bedset-unuse{
+    background: #929292;
+}
+.brand-list .item .bedset-inormal{
+    background: #ed5f7e;
+}
+
+/*************快速床位配置*************/
+.col-md-1{
+    text-align: right;
+}
+.row{
+    margin-bottom: 6px;
+}
+.row input{
+    border-radius: 6px;
+}
+.staticWidth{
+    width: 196px;
+}
+.quick{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+/************个性化界面****************/
+
+.themeChoose{
+    margin-top: 8px;
+}
+.themeChoose .theme{
+    display: inline-block;
+}
+.theme{
+    margin-top: 6px;
+    margin-right: 18px;
+}
+.theme1,.theme2,.theme3,.theme4,.theme5{
+    height: 70px;
+    width: 100px;
+}
+.theme1{
+    background-color: #4bb0a5;
+}
+.theme2{
+    background-color: #f57c00;
+}
+.theme3{
+    background-color: #d32f2f;
+}
+.theme4{
+    background-color: #388e3c;
+}
+.theme5{
+    background-color: #5478c4;
+}
+.themeName{
+    width: 100px;
+    text-align: center;
+}
+
+/************* 床位配置css End ***************/
+
+/************* 员工建档css start ************/
+.bg-grey{
+    background-color: #f9f9f9;
+}
+.gender_radio{
+    padding: 1px 7px;
+}
+.save_btn{
+    margin: 5px 10px; 
+}
+/************* 员工建档css End  *************/

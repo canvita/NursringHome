@@ -1,0 +1,159 @@
+/***********************
+ * 健康监控页所有css集合 *
+ ************************/
+
+/** 子页面全局配置 **/
+body{
+    padding: 0;
+    margin: 15px 1% 0 15px;
+    font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #676a6c;
+    overflow-x: hidden;
+    background-color: transparent;
+}
+p{
+    padding: 0;
+    margin: 0;
+}
+/** 字体大小 **/
+.font-size-20{
+    font-size: 20px;
+}
+.font-size-18{
+    font-size: 18px;
+}
+.font-size-16{
+    font-size: 16px;
+}
+.font-size-14{
+    font-size: 14px;
+}
+/** 浮动 **/
+.float-left{
+    float: left !important;
+}
+.float-right{
+    float: right !important;
+}
+/** 清除浮动 **/
+.clear{
+    clear: both;
+}
+/** 文本居中 **/
+.center{
+    text-align: center;
+}
+/** 标题p **/
+.title-p{
+    padding: 5px 15px;
+}
+/** 子标题p **/
+.sub-title-p{
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.container{
+    width: 99%;
+    background: white;
+    padding: 15px;
+}
+.nav-content{
+    width: 70%;
+    border-bottom: 6px solid #4bb0a5;
+    padding:0px;
+}
+.nav-block{
+    border-bottom: 1px solid #bbbbbb;
+    padding:0px;
+}
+.nav-tabs{
+    padding: 0px;
+    height: 40px;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+    border:0px;
+    background: #4bb0a5;
+    color: white;
+    margin: 0px;
+}
+.nav-tabs>li{
+    margin: 0px;
+}
+.col-part{
+    display: inline-block;
+}
+.col-part p{
+    display: inline-block;
+}
+.p-btn-default{
+    border:1px solid #4bb0a5;
+    border-radius: 5px;
+    color: #4bb0a5;
+    cursor: pointer;
+    background-color: white;
+    padding: 5px 30px;
+}
+/*品牌列表*/
+.brand-list {
+    width: 100%;
+    overflow: hidden;
+    margin-left: -10px;
+    margin-top: 30px;
+}
+.brand-list .brand-bd {
+    position: relative;
+    margin-left: 60px;
+    margin-top: auto;
+}
+.brand-list .item {
+    position: absolute;
+    width: 200px;
+    border: 1px solid #bbbbbb;
+    padding: 18px;
+    padding-top: 10px;
+    top: 0;
+    left: 40%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.brand-list .item i,.brand-list .item p{
+    display: inline-block;
+}
+.brand-list .hover {
+    box-shadow: 0px 1px 8px rgba(200,200,200,.6);
+    background-color: #fff;
+    border-color: #c8c8c8;
+}
+.brand-list .additem {
+    padding: 0;
+    width: 200px;
+    border: none;
+}
+.brand-list .item .bedset {
+    width: 108px;
+    height: 67px;
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 15px;
+    border-radius: 3px;
+    padding: 4px;
+    color: white;
+}
+.brand-list .item .bedset-normal{
+    background: white;
+    border: 1px solid #2baf2b;
+    color: #2baf2b;
+}
+.brand-list .item .bedset-unuse{
+    background: #929292;
+}
+.brand-list .item .bedset-inormal{
+    background: #ed5f7e;
+}
+.bedset p{
+    width:100%;
+    line-height: 48px;
+}

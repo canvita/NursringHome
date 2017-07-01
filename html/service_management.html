@@ -1,0 +1,135 @@
+<!-- 
+    企业管理>员工管理页面 
+-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>护理服务</title>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Data Tables -->
+    <link href="../css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/company_management.css" rel="stylesheet">
+    <style>
+        /* 覆盖company_management.css中form-control */
+        .form-control{
+            height: 25px;
+            margin: 5px;
+            padding: 1px 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- 子页面一级标题 -->
+        <p class="title-p font-size-20"><i class="fa fa-stethoscope sys-color" aria-hidden="true"></i> 护理服务</p>
+        <!-- table容器 -->
+        <div class="table-container">
+            <table class="table table-striped table-bordered table-hover dataTables-example">
+                <thead>
+                    <tr style="background: #fafafa;">
+                        <th>护理级别</th>
+                        <th>具体服务</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="gradeA">
+                        <td>普通护理</td>
+                        <td>
+                            <span>打扫卫生</span>
+                            <span>换洗衣物</span>
+                            <span>常规体检</span>
+                        </td>
+                        <td>
+                            <a class="icon_a sys-color"><i class="fa fa-edit"></i></a>
+                            <a class="icon_a warning-color"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    <tr class="gradeA">
+                        <td>高级护理</td>
+                        <td>
+                            <span>打扫卫生</span>
+                            <span>换洗衣物</span>
+                            <span>常规体检</span>
+                            <span>剪指甲</span>
+                            <span>送餐服务</span>
+                        </td>
+                        <td>
+                            <a class="icon_a sys-color"><i class="fa fa-edit"></i></a>
+                            <a class="icon_a warning-color"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    <tr class="gradeA">
+                        <td>特殊护理</td>
+                        <td>
+                            <span>打扫卫生</span>
+                            <span>换洗衣物</span>
+                            <span>常规体检</span>
+                            <span>剪指甲</span>
+                            <span>送餐服务</span>
+                        </td>
+                        <td>
+                            <a class="icon_a sys-color"><i class="fa fa-edit"></i></a>
+                            <a class="icon_a warning-color"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- 全局js -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Data Tables -->
+    <script src="../js/dataTables/jquery.dataTables.js"></script>
+    <script src="../js/dataTables/dataTables.bootstrap.js"></script>
+
+
+    <!-- Page-Level Scripts -->
+    <script>
+        $(document).ready(function () {
+            // 设置datatable参数
+            $('.dataTables-example').dataTable({
+                "aoColumnDefs": [ { "bSortable": false, "aTargets": [ 1, 2 ] }, // 第0,1,2列禁排序
+                    {"bSearchable": false, "aTargets": [1, 2]}], // 第1,2列不可搜索
+                "bStateSave": false,  // 状态保存
+                "aaSorting": [],  // 默认第0列升序
+                "aLengthMenu": [[5, 10, -1], ["5", "10", "All"]], // 设置每页长度及展示文字
+                "sDom": '<"top"f>rt<"bottom"pil><"clear">',
+                "oLanguage": {
+                    "sLengthMenu": "每页显示 _MENU_ 条记录",
+                    "sZeroRecords": "抱歉， 没有找到",
+                    "sInfo": "共 _TOTAL_ 条数据",
+                    "sInfoEmpty": "没有数据",
+                    "sSearch": "搜索: ",
+                    "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                    "oPaginate": {
+                        "sFirst": "首页",
+                        "sPrevious": "前一页",
+                        "sNext": "后一页",
+                        "sLast": "尾页"
+                    },
+                "sZeroRecords": "没有检索到记录"
+                }
+            });
+            // 添加‘添加护理服务’按钮
+            $(".dataTables_filter").append("<label class='float-right sys-color staff_add_a'><a href='null' target='iframe' class='sys-color'><i class='fa fa-user-plus font-size-16'></i>添加护理级别</a></label>");
+            // 修改搜索框样式
+            $("label").each(function(){
+                if($(this).html().indexOf("搜索")!=-1){
+                    $(this).children('input').addClass("search-input");
+                    $(this).children('input').attr('placeholder', '请输入护理级别');
+                }
+            });
+            // 为iframe跳转添加参数防止缓存
+            var href = $(".dataTables_filter").find('a').attr('href');
+            $(".dataTables_filter").find('a').attr('href', href+'?new='+Math.random());
+        });
+    </script>
+</body>
+</html>

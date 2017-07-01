@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>健康监控</title>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../css/health.css" rel="stylesheet">
+</head>
+<style>
+   .form-control{
+        width: auto;
+        height: 30px;
+        display: inline-block;
+    }
+    legend{
+        width: auto;
+        border-bottom: 0px;
+        margin-bottom: 0px;
+    }
+</style>
+<body>
+  <div class="container">
+    <div class="nav-block">
+      <div class="nav-content">
+        <ul class="nav nav-tabs">
+          <li role="presentation" class="active"><a href="#">异常床位</a></li>
+          <li role="presentation"><a href="#">分管床位</a></li>
+          <li role="presentation"><a href="#">所有床位</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="select-block">
+        <form action="">
+          <div class="col-part sub-title-p font-size-16"> 
+              <p>按位置查找：</p>     
+              <select name="building" class="form-control">
+                  <option checked="checked" value="1">博文苑</option>
+                  <option value="2">恕园</option>
+              </select>
+              <p>楼 - </p>
+          </div>
+          <div class="col-part sub-title-p font-size-16">
+              <select name="floor" class="form-control">
+                  <option checked="checked" value="1">1层</option>
+                  <option value="2">2层</option>
+              </select>
+              <p>层 - </p>
+          </div>  
+          <div class="col-part sub-title-p font-size-16">
+              <input type="search" class="form-control search-bar" placeholder="请输入房间号">
+          </div> 
+          <input type="submit" value="搜索" class="col-part sub-title-p font-size-16 p-btn-default" />
+        </form>
+    </div>
+    <div class="brand-list">
+        <div class="brand-bd cle" id="brand-waterfall">
+            <fieldset class="item">
+                <legend class="font-size-18">博文苑楼层1房间1</legend>
+                <div class="bedset bedset-inormal">
+                    <p class="font-size-14 center">1号床
+                      <i class="center fa fa-heartbeat fa-lg" aria-hidden="true"></i>
+                    </p>
+                </div>
+                <div class="bedset bedset-inormal">
+                    <p class="font-size-14 center">3号床
+                      <i class="center fa fa-heartbeat fa-lg" aria-hidden="true"></i>
+                    </p>
+                </div>
+            </fieldset>
+            <fieldset class="item">
+                <legend class="font-size-18">博文苑楼层1房间2</legend>
+                <div class="bedset bedset-inormal">
+                    <p class="font-size-14 center">2号床
+                      <i class="center fa fa-heartbeat fa-lg" aria-hidden="true"></i>
+                    </p>
+                </div>
+            </fieldset>
+            <fieldset class="item">
+                <legend class="font-size-18">博文苑楼层1房间3</legend>
+                <div class="bedset bedset-inormal">
+                    <p class="font-size-14 center">2号床
+                      <i class="center fa fa-heartbeat fa-lg" aria-hidden="true"></i>
+                    </p>
+                </div>
+            </fieldset>
+            <fieldset class="item">
+                <legend class="font-size-18">博文苑楼层1房间4</legend>
+                <div class="bedset bedset-inormal">
+                    <p class="font-size-14 center">1号床
+                      <i class="center fa fa-heartbeat fa-lg" aria-hidden="true"></i>
+                    </p>
+                </div>
+                <div class="bedset bedset-inormal">
+                    <p class="font-size-14 center">3号床
+                      <i class="center fa fa-heartbeat fa-lg" aria-hidden="true"></i>
+                    </p>
+                </div>
+            </fieldset>
+            <fieldset class="item">
+                <legend class="font-size-18">博文苑楼层1房间5</legend>
+                <div class="bedset bedset-inormal">
+                    <p class="font-size-14 center">1号床
+                      <i class="center fa fa-heartbeat fa-lg" aria-hidden="true"></i>
+                    </p>
+                </div>
+                <div class="bedset bedset-inormal">
+                    <p class="font-size-14 center">3号床
+                      <i class="center fa fa-heartbeat fa-lg" aria-hidden="true"></i>
+                    </p>
+                </div>
+            </fieldset>
+            <fieldset class="item">
+                <legend class="font-size-18">博文苑楼层1房间6</legend>
+                <div class="bedset bedset-inormal">
+                    <p class="font-size-14 center">2号床
+                      <i class="center fa fa-heartbeat fa-lg" aria-hidden="true"></i>
+                    </p>
+                </div>
+            </fieldset>
+            <fieldset class="item">
+                <legend class="font-size-18">博文苑楼层1房间7</legend>
+                <div class="bedset bedset-inormal">
+                    <p class="font-size-14 center">1号床
+                      <i class="center fa fa-heartbeat fa-lg" aria-hidden="true"></i>
+                    </p>
+                </div>
+                <div class="bedset bedset-inormal">
+                    <p class="font-size-14 center">3号床
+                      <i class="center fa fa-heartbeat fa-lg" aria-hidden="true"></i>
+                    </p>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+  </div>
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/spring.js"></script>
+  <script>
+  $(function(){
+      $('#brand-waterfall').waterfall();
+  });
+  </script>
+</body>
+</html>

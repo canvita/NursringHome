@@ -1,0 +1,143 @@
+<!-- 
+    企业管理页面
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>企业管理</title>
+    <link href="../css/main-frame.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- 导航条 -->
+    <div class="nav">
+        <!-- logo标题区 -->
+        <div class="nav-img">
+            <img src="../images/logo.jpg" alt="logo" />
+            <p>高端社区居家养老服务平台</p>
+            <div class="clr"></div>
+        </div>
+        <!-- 右边区域 -->
+        <div class="right-part">
+            <!-- 个人信息区 -->
+            <div class="first">
+                <ul class="imessage">
+                    <li class="imessage-normal">Hi,下午好！</li>
+                    <li id="org-name"class="imessage-normal">移动健康管理实验室</li>
+                    <li id="admin-name" class="imessage-normal">张艺超</li>
+                    <li>退出</li>
+                </ul>
+            </div>
+            <!-- 导航区 -->
+            <div class="nav-li">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="company.html" class="active">企业管理</a></li>
+                    <li><a href="member.html">会员服务</a></li>
+                    <li><a href="health.html">健康监控</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 清除浮动 -->
+        <div class="clr"></div>
+    </div>
+    <!-- 左导航及frame容器 -->
+    <div class="container">
+        <!-- 左导航条 -->
+        <div class="left-sidebar">
+            <div id="sidebar-scroll" class="nano">
+                <div class="sidebar-content">
+                    <ul class="sidebar-nav" id="main-nav">
+                        <!-- 导航条缩小按钮 -->
+                        <li class="sidebar-separator">
+                            <i class="fa fa-navicon fa-rotate-90"></i>
+                        </li>
+                        <li>
+                            <a class="sidebar-nav-menu open" id="character">
+                                <i class="fa fa-sort-desc fa-fw sidebar-nav-indicator sidebar-nav-mini-hide" aria-hidden="true"></i>
+                                <span class="sidebar-nav-mini-hide">角色权限</span>
+                            </a>
+                            <ul class="child-nav level-1 open">
+                                <li>
+                                    <a data-href="staff_management.html" class="active">
+                                        <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
+                                        <span class="sidebar-nav-mini-hide">员工管理</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-href="role_management.html">
+                                        <i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i>
+                                        <span class="sidebar-nav-mini-hide">角色管理</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-nav-menu open" id="systemcon">
+                                <i class="fa fa-sort-desc fa-fw sidebar-nav-indicator sidebar-nav-mini-hide" aria-hidden="true"></i>
+                                <span class="sidebar-nav-mini-hide">系统配置</span>
+                            </a>
+                            <ul class="child-nav level-1">
+                                <li>
+                                    <a data-href="bed_management.html">
+                                        <i class="fa fa-sliders fa-rotate-90 fa-fw" aria-hidden="true"></i>
+                                        <span class="sidebar-nav-mini-hide">床位配置</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-href="equipment_management.html">
+                                        <i class="fa fa-podcast fa-fw" aria-hidden="true"></i>
+                                        <span class="sidebar-nav-mini-hide">设备信息</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-href="service_management.html">
+                                        <i class="fa fa-calendar-plus-o fa-fw" aria-hidden="true"></i>
+                                        <span class="sidebar-nav-mini-hide">护理服务</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-href="ui_management.html">
+                                        <i class="fa fa-wrench fa-fw" aria-hidden="true"></i>
+                                        <span class="sidebar-nav-mini-hide">个性化界面</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-nav-menu open" id="tableli">
+                                <i class="fa fa-sort-desc fa-fw sidebar-nav-indicator sidebar-nav-mini-hide" aria-hidden="true"></i>
+                                <span class="sidebar-nav-mini-hide">报表分析</span>
+                            </a>
+                            <ul class="child-nav level-1">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-line-chart fa-fw" aria-hidden="true"></i>
+                                        <span class="sidebar-nav-mini-hide">财政报表</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-pie-chart fa-fw" aria-hidden="true"></i>
+                                        <span class="sidebar-nav-mini-hide">资源利用率</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- iframe -->
+        <iframe id="main-content" name="iframe" href="staff_management.html" frameborder="0"></iframe>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/leftBar.js"></script>
+  </body>
+</html>

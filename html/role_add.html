@@ -1,0 +1,142 @@
+<!-- 
+    企业管理>角色管理>添加角色页面 
+-->
+<!doctype html>
+<html lang="en">
+    <head runat="server">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>权限管理</title>
+        <link href="../css/bootstrap.css" rel="stylesheet"> 
+        <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+        <link href="../css/company_management.css" rel="stylesheet">
+    </head>
+    <body>
+    当前位置：角色管理 ->添加角色
+        <div class="page-container">
+            <p class="title-p font-size-20">
+                <i class="fa fa-user-plus sys-color" aria-hidden="true"></i> 添加角色
+                <a href="role_management.html" class="font-size-16 float-right" target="iframe">返回 <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+            </p>
+            <form action="">
+                <div class="basic-box">
+                    <div class="info-box">
+                        <div class="info-col">
+                            <div class="col-name">
+                                角色名称：
+                            </div>
+                            <div class="col-input">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="info-col">
+                            <div class="col-name">
+                                角色描述：
+                            </div>
+                            <div class="col-input">
+                                <textarea name="" id="role_description" cols="15" rows="2" ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="title-p font-size-20 mid-title border-both">
+                <i class="fa fa-ils sys-color" aria-hidden="true"></i> 权限分配
+            </div>
+           <form action="" method="" accept-charset="utf-8">
+
+               <div class="biankuang1">
+                    <div class="border-bottom">
+                        <input id="enterprise" type="checkbox" />企业管理
+                    </div>  
+                    <div class="row">
+                    	<div class="col-md-2 col-sm-2 col-xs-6">
+                            <input id="employee" type="checkbox"  name="checkall" />员工管理 <br>
+                            <div class="subBox">
+                                <input name="subBox1" type="checkbox" />查看员工<br>
+                                <input name="subBox1" type="checkbox" />添加员工<br>
+                                <input name="subBox1" type="checkbox" />修改员工<br>
+                                <input name="subBox1" type="checkbox" />员工离职
+                            </div>
+                    	</div>
+
+                    	<div class="col-md-2 col-sm-2 col-xs-6">
+                            <input id="role" type="checkbox" name="checkall"/>角色管理 <br>
+                            <div class="subBox">
+                                <input name="subBox2" type="checkbox" />查看角色<br>
+                                <input name="subBox2" type="checkbox" />添加角色<br>
+                                <input name="subBox2" type="checkbox" >修改角色<br>
+                                <input name="subBox2" type="checkbox" />删除角色
+                            </div>
+                    	</div>
+
+                    	<div class="col-md-2 col-sm-2 col-xs-6">
+                            <input id="bed" type="checkbox" name="checkall"/>床位配置<br>
+                            <div class="subBox">
+                                <input name="subBox3" type="checkbox" />查看床位<br>
+                                <input name="subBox3" type="checkbox" />添加床位<br>
+                                <input name="subBox3" type="checkbox" />修改床位<br>
+                                <input name="subBox3" type="checkbox" />删除床位
+                            </div>
+                    	</div>
+
+                    	<div class="col-md-2 col-sm-2 col-xs-6">
+                            <input id="equipment" type="checkbox" name="checkall"/>设备信息<br>
+                            <div class="subBox">
+                                <input name="subBox4" type="checkbox" />查看设备<br>
+                                <input name="subBox4" type="checkbox"/>添加设备<br>
+                                <input name="subBox4" type="checkbox" />修改设备<br>
+                                <input name="subBox4" type="checkbox" />删除设备
+                            </div>
+                    	</div>
+
+                    	<div class="col-md-2 col-sm-2 col-xs-6">
+                            <input id="personal" type="checkbox" name="checkall"/>个性化界面<br>
+                            <div class="subBox">
+                                <input name="subBox5" type="checkbox" />修改主题
+                            </div>
+                    	</div>
+                    </div>
+                </div>
+
+                 <div class="biankuang1">
+                    <div class="border-bottom">
+                        <input id="vip" type="checkbox" />会员服务
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2 col-xs-6">
+                            <input id="member" type="checkbox"  name="checkall1" />会员管理 <br>
+                            <div class="subBox">
+                                <input name="subBox6" type="checkbox" />查看会员<br>
+                                <input name="subBox6" type="checkbox" />添加会员<br>
+                                <input name="subBox6" type="checkbox" />修改会员<br>
+                                <input name="subBox6" type="checkbox" />会员退住
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 col-sm-2 col-xs-6">
+                            <input id="nurse" type="checkbox" name="checkall1"/>护理记录 <br>
+                            <div class="subBox">
+                                <input name="subBox7" type="checkbox" />查看记录<br>
+                                <input name="subBox7" type="checkbox" />添加记录<br>
+                                <input name="subBox7" type="checkbox" >修改记录<br>
+                                <input name="subBox7" type="checkbox" />删除记录
+                            </div>
+                        </div>
+                 </div>
+                </div>
+
+                  <div class="biankuang1">
+                    <input id="vip" type="checkbox" />健康监测   
+                </div> 
+                <div class="add_role">
+                    <button type="button" class="btn btn-primary" >添加</button>
+            </div>           
+            </form>
+            
+
+        </div>
+    </body>
+    <script src="../js/jquery.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/role_management.js" type="text/javascript"></script> 
+</html>
