@@ -26,8 +26,8 @@ if(!$query){
 }
 //当有查询内容时将查询到的内容返回
 else{
-	$query = '%'.$query.'%';
-	$sql .= " (select * from staff_info where staff_serial_number like '$query' or staff_name like '$query' or staff_gender like '$query' or staff_phone_num like '$query' or staff_id_number like '$query' or staff_role_id like '$query' or staff_create_time like '$query' limit $pageStart,$disOption)";
+	$query = '%'.strtolower($query).'%';
+	$sql .= " (select * from staff_info where lower(staff_serial_number) like '$query' or lower(staff_name) like '$query' or lower(staff_phone_num) like '$query' or lower(staff_id_number) like '$query' limit $pageStart,$disOption)";
 }
 $sql .= " t order by $sortType";
 if($ascDesc){
@@ -46,19 +46,23 @@ $staff_infomation[] = array('staff_serial_number' => $row['staff_serial_number']
 	$sql = "select count(staff_serial_number) total from staff_info";
 	$rs = mysqli_query($conn,$sql);
 	$row = mysqli_fetch_array($rs);
-	//如果正在查询,将总数设置为查询到的数据总条数
-	if($query){
-		$staff_infomation[] = array('total' => sizeof($staff_infomation));
+	//如果数据不为空,回传数据
+	if(!empty($staff_infomation)){
+		//如果正在查询,将总数设置为查询到的数据总条数
+		if($query){
+			$staff_infomation[] = array('total' => sizeof($staff_infomation));
+		}
+		//如果不在查询,将总数设置为表总记录条数
+		else{
+			$staff_infomation[] = array('total' => $row['total']);
+		}
+		//将数组以json格式传回
+			echo json_encode($staff_infomation);
 	}
-	//如果不在查询,将总数设置为表总记录条数
+	//如果数据为空回传0
 	else{
-		$staff_infomation[] = array('total' => $row['total']);
+		echo 0;
 	}
-	//将数组以json格式传回
-	echo json_encode($staff_infomation);
-}
+	
 //如果为空传回1
-else{
-	echo 1;
-}
  ?>

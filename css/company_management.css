@@ -29,8 +29,10 @@ a, a:visited {
     color: #4bb0a5;
 }
 .search-input{
-    width: 280px !important;
-    border-radius: 8px;
+    width: 250px !important;
+    border-radius: 5px;
+    border:1px #4bb0a5 solid;
+    margin-left: 10px;
 }
 /** 字体大小 **/
 .font-size-20{
@@ -48,9 +50,11 @@ a, a:visited {
 /** 浮动 **/
 .float-left{
     float: left !important;
+    margin-left: 10px;
 }
 .float-right{
     float: right !important;
+    padding-right: 10px;
 }
 /** 清除浮动 **/
 .clear{
@@ -104,7 +108,7 @@ table>tbody>tr>td{
 /* table容器样式 */
 .table-container{
     border-top: solid 1px #bbbbbb;
-    padding: 40px 0;
+    padding: 10px 0;
     min-height: 600px;
 }
 /** 标题p **/
@@ -122,7 +126,7 @@ a.disabled {
     opacity: 0.5;
 }
 .staff_add_a{
-    margin-top: -30px !important;
+    margin-top: 0px !important;
 }
 .info-box{
     padding: 5px 15px;
@@ -161,6 +165,10 @@ a.disabled {
 }
 .img-icon{
     max-height: 110px;
+}
+.margin-clear{
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /************* 添加员工页css End ***************/

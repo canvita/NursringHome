@@ -28,6 +28,17 @@ var displayOption = function(){
   });   
 }
 
+/*显示共有多少条记录函数*/
+var displayTotal = function(num){
+  if(num){
+  var txt1 = "共" + pageInfo.total + "条记录"
+  }
+  else{
+      txt1 = "0条记录"
+  }
+  $('#displayTotal').html(txt1);
+}
+
 /*为初次载入时设置参数*/
 var firstLoad = function(){
   //默认按照工号排序
@@ -47,40 +58,53 @@ var firstLoad = function(){
 var intotable = function(requestData){ 
   //从php获取json形式的数据,requestData为需要传到php的数据对象,得到的json数据存放在data中
   $.post('../php/staff_management.php',requestData,function(data){
-  //将json数据解析为js可读的数组形式
-  json =  JSON.parse(data);  
-  //初始化需要写入页面的html段落 
-  var html = '';
-  //遍历数组
-  $.each(json,function(index,value){ 
-    //写入html,并得到数据库的数据总数   
-    if(!value.total){
-         html += '<tr>';
-         html += '<td>' + value.staff_serial_number + '</td>';
-         html += '<td>' + value.staff_name + '</td>';
-         html += '<td>' + numToString('gender',value.staff_gender) + '</td>';
-         html += '<td>' + value.staff_phone_num + '</td>';
-         html += '<td>' + value.staff_id_number+ '</td>';
-         html += '<td>' + numToString('role_id',value.staff_role_id) + '</td>';
-         html += '<td>' + value.staff_create_time + '</td>';
-         html += '<td>';
-         html += '<a class="icon_a sys-color"><i class="fa fa-edit operateBtn"></i></a>';
-         html += '<a class="icon_a sys-color operateBtn"><i class="fa fa-info-circle operateBtn"></i></a>';
-         html += '<a class="icon_a warning-color operateBtn"><i class="fa fa-user-times operateBtn"></i></a>';
-         html += '</td>';
-         html += '</tr>';  
-      }      
-    else{
-      pageInfo.total = value.total;
-    }       
-  });
-  //插入html段落
-  $('tbody').html(html);
-  //执行分页函数
-  paging();
-  //执行操作函数
-  operate();
-  });
+    if(data!=0){
+      //将json数据解析为js可读的数组形式
+      json =  JSON.parse(data);  
+      //初始化需要写入页面的html段落 
+      var html = '';
+      //遍历数组
+      $.each(json,function(index,value){ 
+        //写入html,并得到数据库的数据总数   
+        if(!value.total){
+             html += '<tr>';
+             html += '<td>' + value.staff_serial_number + '</td>';
+             html += '<td>' + value.staff_name + '</td>';
+             html += '<td>' + numToString('gender',value.staff_gender) + '</td>';
+             html += '<td>' + value.staff_phone_num + '</td>';
+             html += '<td>' + value.staff_id_number+ '</td>';
+             html += '<td>' + numToString('role_id',value.staff_role_id) + '</td>';
+             html += '<td>' + value.staff_create_time + '</td>';
+             html += '<td>';
+             html += '<a class="icon_a sys-color"><i class="fa fa-edit operateBtn"></i></a>';
+             html += '<a class="icon_a sys-color operateBtn"><i class="fa fa-info-circle operateBtn"></i></a>';
+             html += '<a class="icon_a warning-color operateBtn"><i class="fa fa-user-times operateBtn"></i></a>';
+             html += '</td>';
+             html += '</tr>';  
+          }      
+        else{
+          pageInfo.total = value.total;
+        }       
+      });
+      //插入html段落
+      $('tbody').html(html);
+      //显示总条数函数
+      displayTotal(1);
+      //执行分页函数
+      paging(1);
+      //执行操作函数
+      operate();
+      }
+      else{
+        //清空tbody
+        $('tbody').html("");
+        //设置页码对象的总条数为0
+        pageInfo.total = 0;
+        //不传参数执行下面两个函数
+        displayTotal();
+        paging();
+      }
+      });
 }
 
 /*将从数据库得到的数字信息转化为可读信息,type为该数字要转化的信息类型,num为信息对应数字*/
@@ -114,12 +138,13 @@ var operate = function(){
   //点击每行对应图标,获取该行唯一标识工号staff_serial_number
   $('td i.operateBtn').click(function(e){
     e.preventDefault();
-    var staff_serial_number = $(this).parent().parent().siblings(':nth-child(1)').text(); 
+    var staff_serial_number = $(this).parent().parent().siblings(':nth-child(1)').text();
+    window.location = 'staff_edit.html?staff_serial_number=' + staff_serial_number; 
   });
 }
 
-/*分页设置函数*/
-var paging = function(){
+/*分页设置函数 num用0和1表示有没有数据*/
+var paging = function(num){
   //获取需要显示的总条数
   var total = pageInfo.total;
   //获取当前页面每页显示条数
@@ -133,33 +158,37 @@ var paging = function(){
   html += '<a href="#" aria-label="Previous">';              
   html += '<span aria-hidden="true">前一页</span>';             
   html += '</a></li>'; 
-  //当总页数小于6页时页码全部显示
-  if(totalPage<=5){
-    for(var i=1;i<=totalPage;i++){
-      html += '<li><a href="#">' + i + '</a></li>';
-    }
-  } 
-  //当总页数大于5时,部分显示页码           
-  else{
-    for(var i=1;i<=totalPage;i++){
-      if(i==1 || i==2){
+  //有数据显示页码
+  if(num){
+    if(totalPage<=5){
+      for(var i=1;i<=totalPage;i++){
         html += '<li><a href="#">' + i + '</a></li>';
       }
-      else if(i==3){
-        html += '<li><a>...</a></li>';
-      }
-      else if(i==totalPage){
-        html += '<li><a href="#">' + i + '</a></li>';
+    } 
+    //当总页数大于5时,部分显示页码           
+    else{
+      for(var i=1;i<=totalPage;i++){
+        if(i==1 || i==2){
+          html += '<li><a href="#">' + i + '</a></li>';
+        }
+        else if(i==3){
+          html += '<li><a>...</a></li>';
+        }
+        else if(i==totalPage){
+          html += '<li><a href="#">' + i + '</a></li>';
+        }
       }
     }
   }
+  //当总页数小于6页时页码全部显示
+
   //插入后一页按钮
   html += '<li id="nextPage">'
   html += '<a href="#" aria-label="Next">'  
   html += '<span aria-hidden="true">后一页</span>';            
   html += '</a></li>';
   //插入分页html段落
-  $('ul.pagination').html(html);
+  $('ul.pagination').html(html).addClass('float-right margin-clear');
   //获取当前页面
   var curPage = requestData.curPage;
   //禁用和启用前一页后一页
@@ -167,7 +196,7 @@ var paging = function(){
   if(curPage == 1){
     $('#previousPage').addClass('disabled');
     //如果总页数为1,禁用后一页按钮
-    if(totalPage == 1){
+    if(totalPage == 1 || pageInfo.total == 0){
       $('#nextPage').addClass('disabled');
     }
   }
@@ -243,7 +272,6 @@ var sort = function(){
     intotable(requestData);
   });
 }
-
 /*注册函数部分*/
 
 $(document).ready(displayOption);
