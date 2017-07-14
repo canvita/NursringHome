@@ -4,7 +4,8 @@
   Build_Date:2017-07-01
   Version   :1.0
   tips: 函数放置顺序为函数首字母字典序
-  执行顺序为firstLoad -> intoTable -> paging -> operate
+  执行顺序为firstLoad -> intoTable -> paging -> operate -> displayTotal
+  改变页面显示条数函数为displayOption,跳转到指定页函数为paging,查询函数为query,点击表头排序函数为sory
 */
 
 /*定义全部变量部分*/
@@ -72,10 +73,10 @@ var intotable = function(requestData){
              html += '<td>' + value.staff_name + '</td>';
              html += '<td>' + numToString('gender',value.staff_gender) + '</td>';
              html += '<td>' + value.staff_phone_num + '</td>';
-             html += '<td>' + value.staff_id_number+ '</td>';
+             html += '<td>' + value.staff_id_card_no+ '</td>';
              html += '<td>' + numToString('role_id',value.staff_role_id) + '</td>';
              html += '<td>' + value.staff_create_time + '</td>';
-             html += '<td>';
+             html += '<td data-id="' + value.staff_id + '">';
              html += '<a class="icon_a sys-color"><i class="fa fa-edit operateBtn"></i></a>';
              html += '<a class="icon_a sys-color operateBtn"><i class="fa fa-info-circle operateBtn"></i></a>';
              html += '<a class="icon_a warning-color operateBtn"><i class="fa fa-user-times operateBtn"></i></a>';
@@ -138,8 +139,8 @@ var operate = function(){
   //点击每行对应图标,获取该行唯一标识工号staff_serial_number
   $('td i.operateBtn').click(function(e){
     e.preventDefault();
-    var staff_serial_number = $(this).parent().parent().siblings(':nth-child(1)').text();
-    window.location = 'staff_edit.html?staff_serial_number=' + staff_serial_number; 
+    var staff_id = $(this).parent().parent().attr('data-id');
+    window.location = 'staff_edit.html?staff_id=' + staff_id; 
   });
 }
 
