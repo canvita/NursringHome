@@ -28,108 +28,41 @@
         <p class="title-p font-size-20"><i class="fa fa-users sys-color" aria-hidden="true"></i> 角色管理</p>
         <!-- table容器 -->
         <div class="table-container">
+             <label class="float-left">搜索:<input type="text" name="search" class="search-input" id='searchInput' placeholder="   请输入员角色名称"></label>
+            <label class='float-right sys-color staff_add_a'><a href='role_add.html' target='iframe' class='sys-color'><i class='fa fa-user-plus font-size-16'></i>添加角色</a></label>
             <table class="table table-striped table-bordered table-hover dataTables-example">
                 <thead>
                     <tr style="background: #fafafa;">
-                        <th>角色名称</th>
+                        <th data-type='role_name'>角色名称 <label> &#9650;</label></th>
                         <th>角色描述</th>
                         <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="gradeA">
-                        <td>超级管理员</td>
-                        <td>超级管理员</td>
-                        <td>
-                            <a href='role_edit.html' target='iframe' class="icon_a sys-color"><i class="fa fa-edit"></i></a>
-                            <a class="icon_a sys-color"><i class="fa fa-info-circle"></i></a>
-                        </td>
-                    </tr>
-                    <tr class="gradeA">
-                        <td>一般管理员</td>
-                        <td>一般管理员</td>
-                        <td>
-                            <a href='role_edit.html' target='iframe' class="icon_a sys-color"><i class="fa fa-edit"></i></a>
-                            <a class="icon_a sys-color"><i class="fa fa-info-circle"></i></a>
-                        </td>
-                    </tr>
-                    <tr class="gradeA">
-                        <td>前台接待</td>
-                        <td>前台接待</td>
-                        <td>
-                            <a href='role_edit.html' target='iframe' class="icon_a sys-color"><i class="fa fa-edit"></i></a>
-                            <a class="icon_a sys-color"><i class="fa fa-info-circle"></i></a>
-                        </td>
-                    </tr>
-                    <tr class="gradeA">
-                        <td>高级护工</td>
-                        <td>高级护工</td>
-                        <td>
-                            <a href='role_edit.html' target='iframe' class="icon_a sys-color"><i class="fa fa-edit"></i></a>
-                            <a class="icon_a sys-color"><i class="fa fa-info-circle"></i></a>
-                        </td>
-                    </tr>
-                    <tr class="gradeA">
-                        <td>普通护工</td>
-                        <td>普通护工</td>
-                        <td>
-                            <a href='role_edit.html' target='iframe' class="icon_a sys-color"><i class="fa fa-edit"></i></a>
-                            <a class="icon_a sys-color"><i class="fa fa-info-circle"></i></a>
-                        </td>
-                    </tr>
+                    
                 </tbody>
             </table>
+            <label class="float-left" id="displayTotal"></label>
+            <label class="float-left">每页显示 <i><select name="displayOption" >
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="100000">All</option>}
+            </select></i> 条记录</label>
+            
+            <ul class="pagination">
+            </ul>
         </div>
     </div>
     <!-- 全局js -->
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-
-    <!-- Data Tables -->
-    <script src="../js/dataTables/jquery.dataTables.js"></script>
-    <script src="../js/dataTables/dataTables.bootstrap.js"></script>
+    <script src="../js/role_management.js" type="text/javascript" charset="utf-8"></script>
 
 
     <!-- Page-Level Scripts -->
     <script>
-        $(document).ready(function () {
-            // 设置datatable参数
-            $('.dataTables-example').dataTable({
-                "aoColumnDefs": [ { "bSortable": false, "aTargets": [ 1, 2 ] }, // 第0,1,2列禁排序
-                    {"bSearchable": false, "aTargets": [1, 2]}], // 第1,2列不可搜索
-                "bStateSave": false,  // 状态保存
-                "aaSorting": [],  // 默认第0列升序
-                "aLengthMenu": [[5, 10, -1], ["5", "10", "All"]], // 设置每页长度及展示文字
-                "sDom": '<"top"f>rt<"bottom"pil><"clear">',
-                "oLanguage": {
-                    "sLengthMenu": "每页显示 _MENU_ 条记录",
-                    "sZeroRecords": "抱歉， 没有找到",
-                    "sInfo": "共 _TOTAL_ 条数据",
-                    "sInfoEmpty": "没有数据",
-                    "sSearch": "搜索: ",
-                    "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
-                    "oPaginate": {
-                        "sFirst": "首页",
-                        "sPrevious": "前一页",
-                        "sNext": "后一页",
-                        "sLast": "尾页"
-                    },
-                "sZeroRecords": "没有检索到记录"
-                }
-            });
-            // 添加‘添加员工’按钮
-            $(".dataTables_filter").append("<label class='float-right sys-color staff_add_a'><a href='role_add.html' target='iframe' class='sys-color'><i class='fa fa-user-plus font-size-16'></i>添加角色</a></label>");
-            // 修改搜索框样式
-            $("label").each(function(){
-                if($(this).html().indexOf("搜索")!=-1){
-                    $(this).children('input').addClass("search-input");
-                    $(this).children('input').attr('placeholder', '请输入角色名称');
-                }
-            });
-            // 为iframe跳转添加参数防止缓存
-            var href = $(".dataTables_filter").find('a').attr('href');
-            $(".dataTables_filter").find('a').attr('href', href+'?new='+Math.random());
-        });
+        
     </script>
 </body>
 </html>
