@@ -1,15 +1,13 @@
 $(document).ready(function(){
-	$('p').click(function(){
-		var count = 0;
-		var all = $('#cb').children()
-		all.each(function(){
-			if($(this).prop('checked')==true){
-				count ++;
-			}
-		});
-		all.prop('checked',true);
-	});
-	$('#cb1').prop('checked').change(function(){
-		alert(22);
-	})
+	txt = 'alert("hi")';
+	eval(txt);
 });
+function searchInStr(string,target){
+	var position = [];
+	var pos = string.indexOf(target);
+	while(pos>-1){
+		position.push(pos);
+		pos = string.indexOf(target,pos+1);
+	}
+	return position;
+}
