@@ -1,0 +1,30 @@
+*{
+	font-size:20px;
+	color:#444444;
+}
+table{
+	width:80%;
+	margin:auto;
+	border:3px #333333 solid;
+	border-radius: 5px;
+}
+caption{
+	margin: 10px;
+	font-size: 40px;
+}
+tr{
+	text-align: center;
+}
+tbody tr:nth-child(odd){
+	background-color: #eeeeee;
+}
+td{
+	padding: 8px;
+}
+td:nth-child(1){
+	width:15%;
+}
+
+a{
+	text-decoration: none;
+}
